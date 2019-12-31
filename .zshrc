@@ -1,4 +1,11 @@
+# 加载antigen(zsh插件管理工具)
 source ~/.zsh/antigen.zsh
+
+
+#
+############################################## 
+#
+
 
 # 加载oh-my-zsh库
 antigen use oh-my-zsh
@@ -32,7 +39,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 # 自动补全功能
 antigen bundle zsh-users/zsh-completions
-
 
 # 加载主题
 antigen theme robbyrussell
