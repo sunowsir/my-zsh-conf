@@ -44,6 +44,7 @@ function Install() {
 	CreateWorkDir
 	ExeVIPCmd "${DownloadAntigen}"
 	ExeVIPCmd "${DownloadZshConf}"
+	echo "Install Success! Please restart this Terminal or source ${ZshConf}."
 	return ${?}
 }
 
