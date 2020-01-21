@@ -2,12 +2,22 @@
 
 cd "${HOME}"
 
-sudo apt-get install git curl 
+sudo apt-get install -y git curl zsh
 
-mkdir ~/.zsh/
+if [[ ! -d ~/.zsh ]]; 
+then
+	mkdir ~/.zsh/
+else 
+	mv -f ~/.zsh ~/.zsh.old
+fi
 
 curl -L git.io/antigen > ~/.zsh/antigen.zsh
 
-mv ~/.zshrc ~/.zshrc_old
+
+if [[ ! -f ~/.zshrc ]];
+then
+	mv -f ~/.zshrc ~/.zshrc_old
+fi
 
 curl -L https://raw.githubusercontent.com/sunowsir/my-zsh-conf/master/.zshrc > ~/.zshrc
+

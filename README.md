@@ -2,13 +2,15 @@
 My ZSH configuration
 
 ## installation
-1. 执行如下命令
+1. 确保github系列域名访问正常
+
+2. 执行如下命令
 
    ```bash
    wget -qO- https://raw.githubusercontent.com/sunowsir/my-zsh-conf/master/setup.sh | sh -x
    ```
 
-2. 重启终端, 等待安装完成
+3. 重启终端, 等待安装完成
 
 ## antigen 
 > * antigen 是zsh插件管理工具
@@ -25,3 +27,4 @@ My ZSH configuration
 6. `antigen list [--simple|--short|--long]` 可选择三种方式展示已安装的插件。
 7. `antigen cleanup` 清理掉所有已安装但未加载的插件 。
 8. `antigen help`帮助信息。
+
