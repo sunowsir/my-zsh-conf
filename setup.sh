@@ -2,12 +2,11 @@
 
 SHELLOld="${SHELL}"
 WorkDir="${HOME}/.zsh"
-WorkDirOld="${HOME}/.zsh.old"
+WorkDirOld=".zsh.old"
 ZshConf="${HOME}/.zshrc"
-ZshConfOld="${HOME}/.zshrc.old"
+ZshConfOld=".zshrc.old"
 AntigenFile="${WorkDir}/antigen.zsh"
 
-DetectionUrl="ping -c 3 -w 5 raw.githubusercontent.com"
 JumpToHome="cd ${HOME}"
 ChangeShellToZsh="chsh -s /bin/zsh"
 ChangeShellToOldShell="chsh -s ${SHELLOld}"
@@ -16,14 +15,20 @@ DownloadAntigen="curl -L git.io/antigen > ${AntigenFile}"
 DownloadZshConf="curl -L https://raw.githubusercontent.com/sunowsir/my-zsh-conf/master/.zshrc > ${ZshConf}"
 
 function ExeVIPCmd() {
-	local cmd="${1}"
+	eval "${1}"
 
-	if [[ $(eval "${cmd}") -ne 0 ]];
+	if [[ ${?} -ne 0 ]];
 	then
 		exit ${?}
 	fi
 
 	return 0
+}
+
+function DetectionUrl() {
+	echo "Probe \`raw.githubusercontent.com\` connection status."
+	ExeVIPCmd "ping -c 3 -w 5 raw.githubusercontent.com"
+	return ${?}
 }
 
 function CreateWorkDir() {
@@ -39,12 +44,16 @@ function CreateWorkDir() {
 }
 
 function Install() {
+	DetectionUrl
+
 	ExeVIPCmd "${InstallNeedPackage}"
 	ExeVIPCmd "${ChangeShellToZsh}"
 	CreateWorkDir
 	ExeVIPCmd "${DownloadAntigen}"
 	ExeVIPCmd "${DownloadZshConf}"
+
 	echo "Install Success! Please restart this Terminal or source ${ZshConf}."
+
 	return ${?}
 }
 
@@ -70,14 +79,6 @@ function Usage() {
 
 function Main() {
 	
-	if [[ $(eval "${DetectionUrl}") -ne 0 ]];
-	then
-		echo -e "\033[1;31mERROR\033[0m : Unable to connect to: raw.githubusercontent.com"
-		return ${?}
-	fi
-
-	eval "${JumpToHome}"
-
 	case ${1} in 
 		"--install")
 			Install
@@ -93,5 +94,6 @@ function Main() {
 	return ${?}
 }
 
+eval "${JumpToHome}"
 Main "${@}"
-return ${?}
+exit ${?}
