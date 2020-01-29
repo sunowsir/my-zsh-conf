@@ -8,6 +8,8 @@ My ZSH configuration
 
    ```bash
    wget -qO- https://raw.githubusercontent.com/sunowsir/my-zsh-conf/master/setup.sh | sh -x
+   #  或者
+   wget -qO- https://gitee.com/sunowsir/my-zsh-conf/raw/master/setup.sh | sh -x 
    ```
 
 3. 重启终端, 等待安装完成

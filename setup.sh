@@ -14,6 +14,9 @@ InstallNeedPackage="sudo apt-get install -y git curl zsh"
 DownloadAntigen="curl -L git.io/antigen > ${AntigenFile}"
 DownloadZshConf="curl -L https://raw.githubusercontent.com/sunowsir/my-zsh-conf/master/.zshrc > ${ZshConf}"
 
+DAGitee="curl -L https://gitee.com/kimzh/antigen/raw/master/bin/antigen.zsh > ${AntigenFile}"
+DZGitee="curl -L https://gitee.com/sunowsir/my-zsh-conf/raw/master/.zshrc > ${ZshConf}"
+
 function ExeVIPCmd() {
 	eval "${1}"
 
@@ -27,8 +30,15 @@ function ExeVIPCmd() {
 
 function DetectionUrl() {
 	echo "Probe \`raw.githubusercontent.com\` connection status."
-	ExeVIPCmd "ping -c 3 -w 5 raw.githubusercontent.com"
-	return ${?}
+	eval "ping -c 3 -w 5 raw.githubusercontent.com"
+
+	if [[ ${?} -ne 0 ]];
+	then
+		DownloadAntigen="${DAGitee}"
+		DownloadZshConf="${DZGitee}"
+	fi
+
+	return 0
 }
 
 function CreateWorkDir() {
