@@ -17,10 +17,11 @@ DownloadZshConf="curl -L https://raw.githubusercontent.com/sunowsir/my-zsh-conf/
 DAGitee="curl -L https://gitee.com/kimzh/antigen/raw/master/bin/antigen.zsh > ${AntigenFile}"
 DZGitee="curl -L https://gitee.com/sunowsir/my-zsh-conf/raw/master/.zshrc > ${ZshConf}"
 
-function ExeVIPCmd() {
-	eval "${1}"
 
-	if [[ ${?} -ne 0 ]];
+function ExeVIPCmd() {
+	
+
+	if eval "${1}" ;
 	then
 		exit ${?}
 	fi
@@ -30,9 +31,9 @@ function ExeVIPCmd() {
 
 function DetectionUrl() {
 	echo "Probe \`raw.githubusercontent.com\` connection status."
-	eval "ping -c 3 -w 5 raw.githubusercontent.com"
+	
 
-	if [[ ${?} -ne 0 ]];
+	if eval "ping -c 3 -w 5 raw.githubusercontent.com" ;
 	then
 		DownloadAntigen="${DAGitee}"
 		DownloadZshConf="${DZGitee}"
