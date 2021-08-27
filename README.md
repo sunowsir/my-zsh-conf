@@ -1,22 +1,10 @@
 # my-zsh-conf
 My ZSH configuration
 
-## installation
-1. 确保github系列域名访问正常
-
-2. 执行如下命令
-
-   ```bash
-   wget -qO- https://raw.githubusercontent.com/sunowsir/my-zsh-conf/master/setup.sh | sh -x
-   #  或者
-   wget -qO- https://gitee.com/sunowsir/my-zsh-conf/raw/master/setup.sh | sh -x 
-   ```
-
-3. 重启终端, 等待安装完成
-
 ## antigen 
 > * antigen 是zsh插件管理工具
 > * 以下命令可以直接写到~/.zshrc中。
+> * 为了方便，仓库直接保存了一份antigen
 
 1. `antigen use xxx` : 加载antigen所支持的zsh框架，例如oh-my-zsh。
 2. `antigen bundle xxx` : 安装或加载xxx插件。
