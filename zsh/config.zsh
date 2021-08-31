@@ -1,12 +1,5 @@
 ## 适当选择自己需要的插件，插件越多，shell启动越慢
 
-# 加载antigen(zsh插件管理工具)
-source ${HOME}/.config/zsh/antigen.zsh
-
-# 加载fzf模糊搜索工具
-source ${HOME}/.config/zsh/fzf.zsh
-
-
 #
 ##############################################  antigen 
 #
@@ -91,7 +84,6 @@ antigen apply
 alias ll='ls -al --color=auto'
 alias cls='clear'
 alias ra='ranger'
-alias disk='df -BG | grep ^\/'
 alias rssh='rofi -show ssh -theme sunowsir-theme'
 
 export EDITOR=vim
