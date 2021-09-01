@@ -1,3 +1,1 @@
-source "${HOME}/.config/zsh/source.zsh"
-
-source "${HOME}/.config/zsh/config.zsh"
+source "${HOME}/.config/zsh/init.zsh"
