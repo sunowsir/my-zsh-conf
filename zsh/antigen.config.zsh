@@ -17,13 +17,13 @@ antigen use oh-my-zsh
 # --------------------- lib plug
 
 # git 辅助插件
-# antigen bundle git
+antigen bundle git
 
 # git 插件的增强版
 antigen bundle gitfast
 
 # keroku 命令补全插件
-# antigen bundle heroku
+antigen bundle heroku
 
 # pip 命令补全插件
 antigen bundle pip
@@ -58,10 +58,10 @@ antigen bundle copyfile
 # --------------------- other plug
 
 # 语法高亮功能
-# antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 # 语法高亮，zsh-syntax-highlighting 的升级版
-antigen bundle zdharma/fast-syntax-highlighting
+# antigen bundle z-shell/fast-syntax-highlighting
 
 # 代码提示功能
 antigen bundle zsh-users/zsh-autosuggestions
@@ -71,6 +71,8 @@ antigen bundle zsh-users/zsh-completions
 
 # 为man手册着色
 antigen bundle ael-code/zsh-colored-man-pages
+
+antigen bundle vi-mode
 
 # --------------------- theme 
 

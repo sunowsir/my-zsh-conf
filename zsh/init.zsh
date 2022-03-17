@@ -3,4 +3,6 @@ source "${ZSH_CONFIG_DIR}/fzf.config.zsh"
 source "${ZSH_CONFIG_DIR}/nvm.config.zsh"
 # source "${ZSH_CONFIG_DIR}/zinit.config.zsh"
 source "${ZSH_CONFIG_DIR}/antigen.config.zsh"
+source "${ZSH_CONFIG_DIR}/proxy.config.zsh"
+source "${ZSH_CONFIG_DIR}/golang.config.zsh"
 
